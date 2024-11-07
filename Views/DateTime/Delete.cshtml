@@ -1,0 +1,17 @@
+@model DateTimeApp.Models.DateTimeRecord
+
+<h2>Delete Record</h2>
+
+<h3>Are you sure you want to delete this record?</h3>
+
+<div>
+    <h4>@Model.Description</h4>
+    <p><strong>Date:</strong> @Model.Date</p>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<a href="@Url.Action("Index")">Back to List</a>

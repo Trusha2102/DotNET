@@ -1,0 +1,31 @@
+@model IEnumerable<DateTimeApp.Models.DateTimeRecord>
+
+<h2>All DateTime Records</h2>
+
+<p>
+    <a href="@Url.Action("Create")">Create New Record</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Date)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var record in Model)
+    {
+        <tr>
+            <td>@record.Date</td>
+            <td>@record.Description</td>
+            <td>
+                <a href="@Url.Action("Details", new { id = record.Id })">Details</a> |
+                <a href="@Url.Action("Edit", new { id = record.Id })">Edit</a> |
+                <a href="@Url.Action("Delete", new { id = record.Id })">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
